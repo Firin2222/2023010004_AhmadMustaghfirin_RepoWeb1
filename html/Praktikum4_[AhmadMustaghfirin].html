@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Mahasiswa</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: grid;
+            grid-template-rows: 100px 1fr;
+            grid-template-columns: 200px 1fr;
+            height: 100vh;
+            grid-template-areas:
+                "header header"
+                "sidebar content";
+        }
+
+        .header {
+            grid-area: header;
+            background-color: #004080;
+            color: white;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header img {
+            height: 60px;
+            margin-right: 20px;
+        }
+
+        .sidebar {
+            grid-area: sidebar;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+
+        .content {
+            grid-area: content;
+            padding: 20px;
+            background-color: #fff;
+        }
+
+        .sidebar a {
+            display: block;
+            margin-bottom: 10px;
+            color: #004080;
+            text-decoration: none;
+        }
+
+        .sidebar a:hover {
+            text-decoration: underline;
+        }
+
+        .student-photo {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <img src="Politeknik Balekambang Jepara.png" alt="Logo Universitas">
+            <h1>Politeknik Balekambang</h1>
+        </div>`
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <h3>Daftar Mahasiswa</h3>
+            <a href="#" onclick="showDetail('AHMAD', 'Detail tentang Mahasiswa 1', 'foto1.jpg')">Mahasiswa 1</a>
+            <a href="#" onclick="showDetail('MUSTAGH', 'Detail tentang Mahasiswa 2', 'foto2.jpg')">Mahasiswa 2</a>
+            <a href="#" onclick="showDetail('FIRIN', 'Detail tentang Mahasiswa 3', 'foto3.jpg')">Mahasiswa 3</a>
+            <!-- Tambahkan daftar mahasiswa lainnya di sini -->
+        </div>
+
+        <!-- Content -->
+        <div class="content" id="student-detail">
+            <h2>Detail Mahasiswa</h2>
+            <p>Klik nama mahasiswa di sebelah kiri untuk melihat detail.</p>
+        </div>
+    </div>
+
+    <script>
+        function showDetail(name, description, photo) {
+            const detail = `
+                <h2>${name}</h2>
+                <img src="${photo}" alt="${name}" class="student-photo">
+                <p>${description}</p>
+            `;
+            document.getElementById('student-detail').innerHTML = detail;
+        }
+    </script>
+
+</body>
+</html>
